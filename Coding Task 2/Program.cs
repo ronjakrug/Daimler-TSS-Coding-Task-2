@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Krug.DaimlerTSS.CodingTask2
@@ -8,7 +9,6 @@ namespace Krug.DaimlerTSS.CodingTask2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
             try
             {
                 foreach(Interval i in Test())
@@ -20,6 +20,7 @@ namespace Krug.DaimlerTSS.CodingTask2
             {
                 Console.WriteLine(ex.ToString());
             }
+
         }
 
         /// <summary>
@@ -35,8 +36,26 @@ namespace Krug.DaimlerTSS.CodingTask2
             intervals.Add(new Interval(12, 18));
             intervals.Add(new Interval(2, 6));
             intervals.Add(new Interval(13, 17));
+            for(int i = 0; i < 10000; i++)
+            {
+                Random a = new Random();
+                int one = a.Next();
+                int two = a.Next();
+                intervals.Add(new Interval(one, two, true));
+            }
+            //Stopwatch to get the code execution time
+            #if DEBUG
+            Stopwatch stopwatch = new Stopwatch();
+
+            stopwatch.Start();
 
             return Interval.Merge(intervals);
+
+            stopwatch.Stop();
+
+            Console.WriteLine("Execution Time is {0} ms", stopwatch.ElapsedMilliseconds);
+            #endif
+
         }
     }
 }
