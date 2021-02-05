@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Coding_Task_2</RootNamespace>
+    <RootNamespace>Krug.DaimlerTSS.CodingTask2</RootNamespace>
+    <AssemblyName>Krug.DaimlerTSS.CodingTask2</AssemblyName>
   </PropertyGroup>
 
 </Project>
