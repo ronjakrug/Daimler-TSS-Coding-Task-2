@@ -36,26 +36,28 @@ namespace Krug.DaimlerTSS.CodingTask2
             intervals.Add(new Interval(12, 18));
             intervals.Add(new Interval(2, 6));
             intervals.Add(new Interval(13, 17));
-            for(int i = 0; i < 10000; i++)
+            for (int i = 0; i < 10000; i++)
             {
                 Random a = new Random();
                 int one = a.Next();
                 int two = a.Next();
                 intervals.Add(new Interval(one, two, true));
             }
-            //Stopwatch to get the code execution time
+
             #if DEBUG
+            //Stopwatch to get the code execution time
             Stopwatch stopwatch = new Stopwatch();
-
             stopwatch.Start();
+            #endif
 
-            return Interval.Merge(intervals);
+            List<Interval> mergedIntervals = Interval.Merge(intervals);
 
+            #if DEBUG
             stopwatch.Stop();
-
             Console.WriteLine("Execution Time is {0} ms", stopwatch.ElapsedMilliseconds);
             #endif
 
+            return mergedIntervals;
         }
     }
 }
